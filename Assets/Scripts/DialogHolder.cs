@@ -6,6 +6,7 @@ using UnityEngine;
 public class DialogHolder : MonoBehaviour
 {
     public LoukasDialogue dialogue;
+    public GameObject trigger;
     
     
     
@@ -23,6 +24,8 @@ public class DialogHolder : MonoBehaviour
     void OnTriggerStay2D(Collider2D other) {
         if(other.tag == "Player"){
                 FindObjectOfType<LoukasDialogueManager>().StartDialogue(dialogue);
+                
+                Destroy(trigger);
                 //FindObjectOfType<LindaDialogueManager>().StartDialogue(dialogue);
             }
     }
